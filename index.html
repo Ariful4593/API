@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JSON</h1>
+    <ol id="user-container">
+
+    </ol>
+    
+    <script>
+        // const user = {id: 171966, name: "Ariful Islam"};
+        // const userJSON = JSON.stringify(user);
+        // const userFromJSON = JSON.parse(userJSON)
+        // console.log(userJSON)
+        // console.log(userFromJSON)
+
+        // fetch('https://jsonplaceholder.typicode.com/users')
+        //     .then(response => response.json())
+        //     .then(json => displayUser(json))
+        //     .catch(error => console.log(error))
+
+            
+        //     function displayUser(users){
+        //         const userNames = users.map(user => user.username)
+                
+        //         console.log(users)
+        //         const ul = document.getElementById("user-container");
+        //         // console.log(userNames)
+        //         for(let i=0;i<userNames.length;i++)
+        //         {
+        //             const user = userNames[i];
+        //             const li = document.createElement("li");
+        //             ul.appendChild(li);
+        //             li.innerText = user;
+                    
+        //         }
+        //     }
+
+            fetch('https://restcountries.eu/rest/v2/all')
+            .then(response => response.json())
+            .then(json => displayUser(json))
+
+            
+            function displayUser(users){
+                const userNames = users.map(user => user.name)
+                
+                console.log(users)
+                const ul = document.getElementById("user-container");
+                for(let i=0;i<userNames.length;i++)
+                {
+                    const user = userNames[i];
+                    const li = document.createElement("li");
+                    ul.appendChild(li);
+                    li.innerText = user;
+                    
+                }
+            }
+    </script>
+</body>
+</html>
